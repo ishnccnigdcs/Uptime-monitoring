@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мониторинг сайтов</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌐 Мониторинг сайтов</h1>
+            <p class="subtitle">Отслеживание доступности ваших сайтов в реальном времени</p>
+        </header>
+
+        <div class="stats-bar">
+            <div class="stat-card">
+                <div class="stat-value" id="total-sites">0</div>
+                <div class="stat-label">Всего сайтов</div>
+            </div>
+            <div class="stat-card success">
+                <div class="stat-value" id="up-sites">0</div>
+                <div class="stat-label">Доступны</div>
+            </div>
+            <div class="stat-card error">
+                <div class="stat-value" id="down-sites">0</div>
+                <div class="stat-label">Недоступны</div>
+            </div>
+        </div>
+
+        <div class="actions">
+            <button class="btn btn-primary" onclick="showAddSiteModal()">+ Добавить сайт</button>
+            <button class="btn btn-secondary" onclick="refreshSites()">🔄 Обновить</button>
+        </div>
+
+        <div class="sites-list" id="sites-list">
+            <div class="loading">Загрузка...</div>
+        </div>
+    </div>
+
+    <!-- Модальное окно добавления сайта -->
+    <div id="add-site-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAddSiteModal()">&times;</span>
+            <h2>Добавить сайт для мониторинга</h2>
+            <form id="add-site-form" onsubmit="addSite(event)">
+                <div class="form-group">
+                    <label for="site-url">URL сайта:</label>
+                    <input type="text" id="site-url" name="url" placeholder="https://example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="site-name">Название (необязательно):</label>
+                    <input type="text" id="site-name" name="name" placeholder="Мой сайт">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Добавить</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeAddSiteModal()">Отмена</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

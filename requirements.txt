@@ -1,0 +1,8 @@
+fastapi==0.115.0
+uvicorn[standard]==0.30.0
+requests==2.31.0
+# Telegram уведомления (aiogram) — опционально.
+# На Windows + Python 3.14 сейчас нет готовых wheel для aiohttp, поэтому установка aiogram
+# требует MSVC Build Tools (C++ compiler) для сборки aiohttp.
+# Если у вас Python 3.11/3.12 — можно раскомментировать строку и поставить без сборки.
+# aiogram==3.5.0
